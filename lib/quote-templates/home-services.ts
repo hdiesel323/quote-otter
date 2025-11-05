@@ -9,6 +9,17 @@ export const roofingTemplate: QuoteTemplate = {
   estimatedTime: '2 minutes',
   icon: 'pi-home',
   
+  // Call Now configuration
+  callNow: {
+    enabled: true,
+    phoneNumber: '(888) 555-ROOF',
+    urgencyMessage: 'Limited contractor availability - Call in the next 2 hours for priority scheduling!',
+    agentMessage: '3 certified roofing specialists are standing by.',
+    showTimer: true,
+    timerMinutes: 120, // 2 hours
+    buttonText: 'CALL NOW FOR PRIORITY SERVICE'
+  },
+  
   steps: [
     {
       id: 'project-details',

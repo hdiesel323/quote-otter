@@ -325,6 +325,18 @@ export const finalExpenseTemplate: QuoteTemplate = {
   estimatedTime: '2 minutes',
   icon: 'pi-heart',
   
+  // Call Now configuration - shown after form completion
+  callNow: {
+    enabled: true,
+    phoneNumber: '(888) 555-0123',
+    urgencyMessage: 'Special offer expires in 3 hours - Call now to lock in your rate!',
+    agentMessage: 'We have 2 licensed insurance agents available right now to take your call.',
+    showTimer: true,
+    timerMinutes: 180, // 3 hours
+    buttonText: 'CALL NOW TO COMPLETE',
+    skipButtonText: "I'll call later"
+  },
+  
   steps: [
     {
       id: 'applicant-info',

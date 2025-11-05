@@ -56,6 +56,17 @@ export interface QuoteStep {
   skipIf?: (answers: Record<string, any>) => boolean;
 }
 
+export interface CallNowConfig {
+  enabled: boolean;
+  phoneNumber: string;
+  urgencyMessage: string; // "This promotion ends in 3 hours"
+  agentMessage?: string; // "2 agents available right now"
+  showTimer?: boolean; // Show countdown timer
+  timerMinutes?: number; // How many minutes for countdown
+  buttonText?: string; // Default: "Call Now"
+  skipButtonText?: string; // Default: "I'll Call Later"
+}
+
 export interface QuoteTemplate {
   serviceId: string;
   serviceName: string;
@@ -70,6 +81,9 @@ export interface QuoteTemplate {
     currentStepId: string, 
     answers: Record<string, any>
   ) => string | null; // return next step ID or null for default
+  
+  // Call Now configuration (shown after form completion)
+  callNow?: CallNowConfig;
   
   // Metadata
   estimatedTime?: string; // "2 minutes"
