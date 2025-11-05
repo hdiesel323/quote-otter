@@ -11,13 +11,13 @@ All code has been successfully uploaded and is ready for development and deploym
 ## 📦 What's in the Repo
 
 ```
-quote-otter/
+quote-otter/                               # Repository root & Next.js app
 ├── README.md                              # Project overview
 ├── START.md                               # Quick start guide
 ├── QUOTEOTTER_VS_BILLY.md                # Competitive analysis
+├── DEPLOYMENT_READY.md                   # Deployment guide
 ├── .gitignore                             # Git ignore rules
 ├── old-vite-quoteotter-backup.tar.gz     # Original backup
-└── quoteotter-app/                        # Main application
     ├── app/                               # Next.js pages
     │   ├── page.tsx                       # Homepage
     │   ├── services/page.tsx              # All services

@@ -3,7 +3,7 @@
 ## Quick Start (Development)
 
 ```bash
-cd /Users/admin/Dropbox/Labs/GitHub/quote-otter/quoteotter-app
+cd /Users/admin/Dropbox/Labs/GitHub/quote-otter
 npm run dev
 ```
 
@@ -77,7 +77,7 @@ cp .env.example .env.local
 ## Project Structure
 
 ```
-quoteotter-app/
+quote-otter/
 ├── app/                    # Pages
 │   ├── page.tsx           # Homepage
 │   └── services/
@@ -117,7 +117,6 @@ quoteotter-app/
 
 1. **Add Environment Variables**
    ```bash
-   cd quoteotter-app
    cp .env.example .env.local
    ```
 
