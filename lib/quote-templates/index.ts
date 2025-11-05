@@ -35,6 +35,9 @@ export function getQuoteTemplateBySlug(slug: string): QuoteTemplate | null {
   return template || null;
 }
 
+// Alias for convenience
+export const getTemplateBySlug = getQuoteTemplateBySlug;
+
 /**
  * Check if a service has a quote template
  */
