@@ -14,10 +14,10 @@ const PopularServicesSimple: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-14">
           <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
-            Most Requested Services
+            Popular Services Near You
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Get instant quotes for our most popular services
+            Thousands of customers start their search with these top services
           </p>
         </div>
 
@@ -78,20 +78,20 @@ const PopularServicesSimple: React.FC = () => {
         {/* Trust indicators */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto text-center">
           <div>
-            <div className="text-4xl font-extrabold text-indigo-600 mb-2">2M+</div>
-            <div className="text-sm text-gray-600 font-medium">Happy Customers</div>
+            <div className="text-4xl font-extrabold text-indigo-600 mb-2">50K+</div>
+            <div className="text-sm text-gray-600 font-medium">Satisfied Users</div>
           </div>
           <div>
-            <div className="text-4xl font-extrabold text-indigo-600 mb-2">5</div>
-            <div className="text-sm text-gray-600 font-medium">Quotes in Minutes</div>
+            <div className="text-4xl font-extrabold text-indigo-600 mb-2">2min</div>
+            <div className="text-sm text-gray-600 font-medium">Average Request Time</div>
           </div>
           <div>
-            <div className="text-4xl font-extrabold text-indigo-600 mb-2">40%</div>
-            <div className="text-sm text-gray-600 font-medium">Average Savings</div>
+            <div className="text-4xl font-extrabold text-indigo-600 mb-2">100%</div>
+            <div className="text-sm text-gray-600 font-medium">Free to Use</div>
           </div>
           <div>
-            <div className="text-4xl font-extrabold text-indigo-600 mb-2">4.8★</div>
-            <div className="text-sm text-gray-600 font-medium">Customer Rating</div>
+            <div className="text-4xl font-extrabold text-indigo-600 mb-2">4.9★</div>
+            <div className="text-sm text-gray-600 font-medium">User Rating</div>
           </div>
         </div>
       </div>

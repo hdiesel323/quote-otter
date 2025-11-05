@@ -61,11 +61,11 @@ const LeadGenHero: React.FC = () => {
             <div className="text-white space-y-8">
               <div className="space-y-4">
                 <h1 className="text-5xl lg:text-6xl font-extrabold leading-tight">
-                  When providers compete,
-                  <span className="block text-yellow-300">you win.</span>
+                  Compare quotes.
+                  <span className="block text-yellow-300">Choose the best.</span>
                 </h1>
                 <p className="text-xl text-blue-100 leading-relaxed">
-                  Compare quotes from top-rated professionals in your area. One simple form gets you up to 5 competitive quotes in minutes.
+                  Connect with verified professionals for any service. Fill out one form and receive multiple competitive quotes—all completely free.
                 </p>
               </div>
 
@@ -87,7 +87,7 @@ const LeadGenHero: React.FC = () => {
 
               {/* Social proof */}
               <div className="pt-6 border-t border-white/20">
-                <p className="text-sm text-blue-200 mb-3">Trusted by over 2 million Americans</p>
+                <p className="text-sm text-blue-200 mb-3">Join thousands of smart shoppers nationwide</p>
                 <div className="flex items-center gap-2">
                   <div className="flex -space-x-2">
                     {[1, 2, 3, 4].map((i) => (
@@ -96,14 +96,14 @@ const LeadGenHero: React.FC = () => {
                       </div>
                     ))}
                     <div className="w-10 h-10 rounded-full bg-blue-900 border-2 border-white flex items-center justify-center text-white font-semibold text-xs">
-                      +2M
+                      +50K
                     </div>
                   </div>
                   <div className="flex text-yellow-300">
                     {'★★★★★'.split('').map((star, i) => (
                       <span key={i} className="text-lg">{star}</span>
                     ))}
-                    <span className="ml-2 text-white text-sm">4.8/5</span>
+                    <span className="ml-2 text-white text-sm">4.9/5</span>
                   </div>
                 </div>
               </div>

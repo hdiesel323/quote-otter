@@ -23,27 +23,27 @@ const WhyChooseUs: React.FC = () => {
         <div className="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
           <div className="mb-12 lg:mb-0 animate-[fadeInUp_0.8s_ease-out]">
             <h2 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-6">
-              The Smartest Way to Shop for Insurance
+              Why Choose QuoteOtter?
             </h2>
             <p className="text-xl text-gray-600 leading-relaxed">
-              QuoteOtter simplifies the insurance shopping experience. We do the heavy lifting so you can make confident decisions without the hassle.
+              We connect you with qualified professionals across every service category. Compare options, read reviews, and hire with confidence—all in one place.
             </p>
           </div>
           <div className="space-y-6 animate-[fadeInUp_0.8s_ease-out_0.2s] opacity-0 [animation-fill-mode:forwards]">
             <Feature
               icon="pi-bolt"
-              title="Fast & Easy"
-              description="Our streamlined process gets you personalized quotes in under 5 minutes. No lengthy phone calls, no waiting."
+              title="Lightning Fast"
+              description="Submit one request and receive multiple competitive quotes within minutes. No phone tag, no delays."
             />
             <Feature
               icon="pi-tag"
-              title="Completely Free"
-              description="Comparing quotes on QuoteOtter is always 100% free. No hidden fees, no obligations."
+              title="Always Free"
+              description="Our service costs you nothing. We connect professionals with customers—you compare and choose at zero cost."
             />
             <Feature
               icon="pi-shield"
-              title="Trusted & Secure"
-              description="We partner with the nation&apos;s leading insurance carriers and protect your data with top-tier security."
+              title="Verified Providers"
+              description="Every professional in our network is pre-screened. Your information is protected with bank-level encryption."
             />
           </div>
         </div>

@@ -55,31 +55,31 @@ const HowItWorks: React.FC = () => {
           <Step
             number={1}
             icon="pi-file-edit"
-            title="Tell Us What You Need"
-            description="Fill out our quick form with details about your service needs. It takes less than 2 minutes."
+            title="Share Your Project Details"
+            description="Describe what you need in a simple form. Takes under 2 minutes, no account required."
           />
           <Step
             number={2}
             icon="pi-users"
-            title="Get Matched with Pros"
-            description="We connect you with up to 5 verified professionals who compete for your business."
+            title="Receive Multiple Quotes"
+            description="Qualified professionals review your request and send competitive quotes directly to you."
           />
           <Step
             number={3}
             icon="pi-check-circle"
-            title="Compare & Choose"
-            description="Review quotes, read ratings, and select the best professional. Save up to 40%!"
+            title="Compare and Hire"
+            description="Review proposals side-by-side, check reviews and credentials, then choose your favorite."
           />
         </div>
 
         {/* CTA */}
         <div className="text-center mt-12">
           <button className="px-10 py-5 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold text-lg rounded-xl shadow-lg hover:shadow-xl transition-all hover:scale-105">
-            Get Started - It&apos;s Free
+            Start Your Free Request
             <i className="pi pi-arrow-right ml-2" />
           </button>
           <p className="mt-4 text-sm text-gray-500">
-            No credit card required • 100% free service • Takes 2 minutes
+            Free forever • No sign-up required • Get quotes in minutes
           </p>
         </div>
       </div>
