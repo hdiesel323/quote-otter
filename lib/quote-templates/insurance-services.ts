@@ -9,6 +9,18 @@ export const autoInsuranceTemplate: QuoteTemplate = {
   estimatedTime: '3 minutes',
   icon: 'pi-car',
   
+  // Call Now configuration
+  callNow: {
+    enabled: true,
+    phoneNumber: '(888) 555-AUTO',
+    urgencyMessage: 'Lock in your quote before rates change - Call within 2 hours!',
+    agentMessage: 'Licensed insurance agents are standing by to finalize your policy.',
+    showTimer: true,
+    timerMinutes: 120, // 2 hours
+    buttonText: 'CALL NOW TO SAVE',
+    skipButtonText: "I'll review quotes online"
+  },
+  
   steps: [
     {
       id: 'vehicle-info',
@@ -188,6 +200,18 @@ export const homeInsuranceTemplate: QuoteTemplate = {
   vertical: 'insurance',
   estimatedTime: '3 minutes',
   icon: 'pi-home',
+  
+  // Call Now configuration
+  callNow: {
+    enabled: true,
+    phoneNumber: '(888) 555-HOME',
+    urgencyMessage: 'Protect your home today - Special rates expire in 3 hours!',
+    agentMessage: 'Expert home insurance advisors available now to customize your coverage.',
+    showTimer: true,
+    timerMinutes: 180, // 3 hours
+    buttonText: 'CALL NOW FOR INSTANT QUOTE',
+    skipButtonText: "Continue online"
+  },
   
   steps: [
     {
