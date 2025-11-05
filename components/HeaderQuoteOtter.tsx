@@ -17,13 +17,16 @@ const HeaderQuoteOtter: React.FC = () => {
             </span>
           </Link>
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="#how-it-works" className="text-gray-600 hover:text-indigo-600 transition-colors">
+            <Link href="/services" className="text-gray-600 hover:text-indigo-600 font-semibold transition-colors">
+              Browse Services
+            </Link>
+            <Link href="/#how-it-works" className="text-gray-600 hover:text-indigo-600 transition-colors">
               How It Works
             </Link>
-            <Link href="#features" className="text-gray-600 hover:text-indigo-600 transition-colors">
+            <Link href="/#features" className="text-gray-600 hover:text-indigo-600 transition-colors">
               Features
             </Link>
-            <Link href="#faq" className="text-gray-600 hover:text-indigo-600 transition-colors">
+            <Link href="/#faq" className="text-gray-600 hover:text-indigo-600 transition-colors">
               FAQ
             </Link>
             <ButtonSignin text="Sign In" />

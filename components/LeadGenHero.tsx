@@ -4,19 +4,22 @@ import React, { useState } from 'react';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import { Dropdown } from 'primereact/dropdown';
-import { getAllCategories, type ServiceCategory } from '@/types/verticals';
+import { VERTICALS, type ServiceCategory } from '@/types/verticals';
 
 const LeadGenHero: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<ServiceCategory | null>(null);
   const [zipCode, setZipCode] = useState<string>('');
   const [error, setError] = useState<string>('');
 
-  const allCategories = getAllCategories();
-  
-  const categoryOptions = allCategories.map(cat => ({
-    label: cat.name,
-    value: cat.id,
-    category: cat,
+  // Group categories by vertical for better UX
+  const groupedCategories = VERTICALS.map(vertical => ({
+    label: vertical.name,
+    code: vertical.id,
+    items: vertical.categories.map(cat => ({
+      label: cat.name,
+      value: cat.id,
+      category: cat,
+    }))
   }));
 
   const handleZipChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -128,10 +131,21 @@ const LeadGenHero: React.FC = () => {
                     <Dropdown
                       value={selectedCategory?.id}
                       onChange={(e) => {
-                        const cat = allCategories.find(c => c.id === e.value);
-                        setSelectedCategory(cat || null);
+                        // Find category across all verticals
+                        let foundCategory: ServiceCategory | null = null;
+                        for (const vertical of VERTICALS) {
+                          const cat = vertical.categories.find(c => c.id === e.value);
+                          if (cat) {
+                            foundCategory = cat;
+                            break;
+                          }
+                        }
+                        setSelectedCategory(foundCategory);
                       }}
-                      options={categoryOptions}
+                      options={groupedCategories}
+                      optionLabel="label"
+                      optionGroupLabel="label"
+                      optionGroupChildren="items"
                       placeholder="Select a service..."
                       filter
                       className="w-full !border-2 !border-gray-300 hover:!border-indigo-500 focus:!border-indigo-600"
@@ -181,8 +195,18 @@ const LeadGenHero: React.FC = () => {
                         key={service}
                         type="button"
                         onClick={() => {
-                          const cat = allCategories.find(c => c.name.toLowerCase().includes(service.toLowerCase()));
-                          if (cat) setSelectedCategory(cat);
+                          // Find service across all verticals
+                          let foundCat: ServiceCategory | null = null;
+                          for (const vertical of VERTICALS) {
+                            const cat = vertical.categories.find(c => 
+                              c.name.toLowerCase().includes(service.toLowerCase())
+                            );
+                            if (cat) {
+                              foundCat = cat;
+                              break;
+                            }
+                          }
+                          if (foundCat) setSelectedCategory(foundCat);
                         }}
                         className="px-3 py-1.5 text-xs font-medium text-indigo-600 bg-indigo-50 rounded-full hover:bg-indigo-100 transition-colors"
                       >

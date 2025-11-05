@@ -9,13 +9,24 @@ export default function ServicesPage() {
       <HeaderQuoteOtter />
       <main className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumb Navigation */}
+          <div className="mb-8">
+            <Link 
+              href="/"
+              className="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-700 font-semibold group"
+            >
+              <i className="pi pi-arrow-left transform group-hover:-translate-x-1 transition-transform" />
+              Back to Home
+            </Link>
+          </div>
+
           {/* Page Header */}
           <div className="text-center mb-16 animate-[fadeInUp_0.8s_ease-out]">
             <h1 className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-6">
               All Services
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Browse all available services and get free quotes from trusted professionals
+              Browse all 46+ services and get free quotes from trusted professionals
             </p>
           </div>
 
