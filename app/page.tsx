@@ -1,6 +1,6 @@
 import HeaderQuoteOtter from "@/components/HeaderQuoteOtter";
 import FooterQuoteOtter from "@/components/FooterQuoteOtter";
-import UniversalHero from "@/components/verticals/UniversalHero";
+import LeadGenHero from "@/components/LeadGenHero";
 import PopularServices from "@/components/verticals/PopularServices";
 import HowItWorks from "@/components/insurance/HowItWorks";
 import WhyChooseUs from "@/components/insurance/WhyChooseUs";
@@ -11,7 +11,7 @@ export default function Page() {
     <>
       <HeaderQuoteOtter />
       <main>
-        <UniversalHero />
+        <LeadGenHero />
         <PopularServices />
         <HowItWorks />
         <WhyChooseUs />
