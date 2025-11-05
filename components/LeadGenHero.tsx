@@ -9,7 +9,10 @@ import { VERTICALS, type ServiceCategory } from '@/types/verticals';
 const LeadGenHero: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<ServiceCategory | null>(null);
   const [zipCode, setZipCode] = useState<string>('');
+  const [location, setLocation] = useState<{ city: string; state: string } | null>(null);
   const [error, setError] = useState<string>('');
+  const [isLoadingLocation, setIsLoadingLocation] = useState(false);
+  const [isValidatingZip, setIsValidatingZip] = useState(false);
 
   // Group categories by vertical for better UX
   const groupedCategories = VERTICALS.map(vertical => ({
@@ -22,12 +25,101 @@ const LeadGenHero: React.FC = () => {
     }))
   }));
 
+  // Validate and fetch location for ZIP code
+  const validateZipCode = async (zip: string) => {
+    if (zip.length !== 5) {
+      setLocation(null);
+      return;
+    }
+
+    setIsValidatingZip(true);
+    try {
+      // Using free zippopotam.us API for ZIP validation
+      const response = await fetch(`https://api.zippopotam.us/us/${zip}`);
+      if (response.ok) {
+        const data = await response.json();
+        const place = data.places[0];
+        setLocation({
+          city: place['place name'],
+          state: place['state abbreviation']
+        });
+        setError('');
+      } else {
+        setLocation(null);
+        setError('Invalid ZIP code');
+      }
+    } catch (err) {
+      setLocation(null);
+      // Don't show error for network issues, just clear location
+    } finally {
+      setIsValidatingZip(false);
+    }
+  };
+
   const handleZipChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.replace(/\D/g, '');
     if (value.length <= 5) {
       setZipCode(value);
-      if (error) setError('');
+      if (error && error !== 'Invalid ZIP code') setError('');
+      
+      // Validate when 5 digits entered
+      if (value.length === 5) {
+        validateZipCode(value);
+      } else {
+        setLocation(null);
+      }
     }
+  };
+
+  // Use geolocation to get user's ZIP
+  const handleUseMyLocation = () => {
+    if (!navigator.geolocation) {
+      setError('Geolocation is not supported by your browser');
+      return;
+    }
+
+    setIsLoadingLocation(true);
+    setError('');
+
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        try {
+          // Use reverse geocoding to get ZIP from coordinates
+          const { latitude, longitude } = position.coords;
+          
+          // Using free geocoding API
+          const response = await fetch(
+            `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`
+          );
+          
+          if (response.ok) {
+            const data = await response.json();
+            const zip = data.postcode || data.postalCode;
+            
+            if (zip && /^\d{5}$/.test(zip)) {
+              setZipCode(zip);
+              await validateZipCode(zip);
+            } else {
+              setError('Could not determine your ZIP code');
+            }
+          } else {
+            setError('Could not determine your location');
+          }
+        } catch (err) {
+          setError('Error getting your location');
+        } finally {
+          setIsLoadingLocation(false);
+        }
+      },
+      (err) => {
+        setIsLoadingLocation(false);
+        if (err.code === err.PERMISSION_DENIED) {
+          setError('Location permission denied. Please enter your ZIP manually.');
+        } else {
+          setError('Could not get your location');
+        }
+      }
+    );
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -40,9 +132,13 @@ const LeadGenHero: React.FC = () => {
       setError('Please enter a valid 5-digit ZIP code');
       return;
     }
+    if (!location) {
+      setError('Please enter a valid ZIP code');
+      return;
+    }
     
     setError('');
-    alert(`Finding ${selectedCategory.name} professionals in ZIP code ${zipCode}...`);
+    alert(`Finding ${selectedCategory.name} professionals in ${location.city}, ${location.state}...`);
   };
 
   return (
@@ -158,15 +254,66 @@ const LeadGenHero: React.FC = () => {
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Your ZIP Code
                     </label>
-                    <InputText
-                      value={zipCode}
-                      onChange={handleZipChange}
-                      placeholder="Enter ZIP"
-                      keyfilter="int"
-                      maxLength={5}
-                      className={`w-full !text-lg !py-3 !border-2 ${error ? '!border-red-500' : '!border-gray-300 hover:!border-indigo-500 focus:!border-indigo-600'}`}
-                    />
-                    {error && <p className="text-red-600 text-sm mt-1">{error}</p>}
+                    <div className="relative">
+                      <InputText
+                        value={zipCode}
+                        onChange={handleZipChange}
+                        placeholder="Enter ZIP"
+                        keyfilter="int"
+                        maxLength={5}
+                        className={`w-full !text-lg !py-3 !pl-4 !pr-12 !border-2 ${
+                          error 
+                            ? '!border-red-500' 
+                            : location 
+                              ? '!border-green-500' 
+                              : '!border-gray-300 hover:!border-indigo-500 focus:!border-indigo-600'
+                        }`}
+                      />
+                      
+                      {/* Loading/Validation indicator */}
+                      {isValidatingZip && (
+                        <div className="absolute right-3 top-1/2 -translate-y-1/2">
+                          <i className="pi pi-spin pi-spinner text-indigo-600" />
+                        </div>
+                      )}
+                      
+                      {/* Success checkmark */}
+                      {location && !isValidatingZip && (
+                        <div className="absolute right-3 top-1/2 -translate-y-1/2">
+                          <i className="pi pi-check-circle text-green-600 text-xl" />
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Location display */}
+                    {location && !error && (
+                      <p className="text-green-600 text-sm mt-2 flex items-center gap-1">
+                        <i className="pi pi-map-marker" />
+                        {location.city}, {location.state}
+                      </p>
+                    )}
+
+                    {/* Use my location button */}
+                    <button
+                      type="button"
+                      onClick={handleUseMyLocation}
+                      disabled={isLoadingLocation}
+                      className="mt-2 text-sm text-indigo-600 hover:text-indigo-700 font-medium flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {isLoadingLocation ? (
+                        <>
+                          <i className="pi pi-spin pi-spinner" />
+                          Detecting location...
+                        </>
+                      ) : (
+                        <>
+                          <i className="pi pi-map-marker" />
+                          Use my current location
+                        </>
+                      )}
+                    </button>
+
+                    {error && <p className="text-red-600 text-sm mt-2">{error}</p>}
                   </div>
 
                   {/* Submit Button */}
