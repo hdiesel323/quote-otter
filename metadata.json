@@ -1,0 +1,5 @@
+{
+  "name": "QuoteOtter Insurance Comparison",
+  "description": "A user-friendly web application to compare insurance quotes for auto, home, life, and renters insurance, inspired by QuoteWizard.",
+  "requestFramePermissions": []
+}
