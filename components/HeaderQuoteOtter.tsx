@@ -29,7 +29,12 @@ const HeaderQuoteOtter: React.FC = () => {
             <Link href="/#faq" className="text-gray-600 hover:text-indigo-600 transition-colors">
               FAQ
             </Link>
-            <ButtonSignin text="Sign In" />
+            <Link 
+              href="/dashboard" 
+              className="px-6 py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-lg hover:from-indigo-700 hover:to-purple-700 transition-all shadow-md hover:shadow-lg"
+            >
+              Join as Pro
+            </Link>
           </div>
         </div>
       </div>

@@ -14,7 +14,7 @@ const Feature: React.FC<{ icon: string; title: string; description: string }> = 
 
 const WhyChooseUs: React.FC = () => {
   return (
-    <section className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+    <section id="features" className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-purple-200/20 rounded-full filter blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-200/20 rounded-full filter blur-3xl"></div>
