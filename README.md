@@ -6,7 +6,7 @@
 
 ```bash
 # Navigate to the project
-cd ship-fast-ts
+cd quoteotter-app
 
 # Install dependencies (if needed)
 npm install
@@ -22,7 +22,7 @@ npm run dev
 
 ```
 quote-otter/
-├── ship-fast-ts/              # Main Next.js application
+├── quoteotter-app/            # Main Next.js application
 │   ├── app/                   # Next.js app router pages
 │   ├── components/            # React components
 │   │   ├── verticals/         # Multi-service components
