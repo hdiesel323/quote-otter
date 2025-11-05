@@ -48,6 +48,7 @@ export const HOME_SERVICES_CATEGORIES: ServiceCategory[] = [
 export const INSURANCE_CATEGORIES: ServiceCategory[] = [
   { id: 'auto-insurance', name: 'Auto Insurance', vertical: ServiceVertical.Insurance, icon: 'pi-car', description: 'Car insurance quotes', slug: 'auto-insurance', popular: true },
   { id: 'home-insurance', name: 'Home Insurance', vertical: ServiceVertical.Insurance, icon: 'pi-home', description: 'Homeowners insurance', slug: 'home-insurance', popular: true },
+  { id: 'final-expense', name: 'Final Expense', vertical: ServiceVertical.Insurance, icon: 'pi-heart', description: 'Final expense insurance coverage', slug: 'final-expense', popular: true },
   { id: 'life-insurance', name: 'Life Insurance', vertical: ServiceVertical.Insurance, icon: 'pi-heart', description: 'Life insurance coverage', slug: 'life-insurance', popular: true },
   { id: 'health-insurance', name: 'Health Insurance', vertical: ServiceVertical.Insurance, icon: 'pi-heart-fill', description: 'Medical insurance plans', slug: 'health-insurance' },
   { id: 'renters-insurance', name: 'Renters Insurance', vertical: ServiceVertical.Insurance, icon: 'pi-building', description: 'Rental property insurance', slug: 'renters-insurance' },

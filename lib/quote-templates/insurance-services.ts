@@ -316,8 +316,173 @@ export const homeInsuranceTemplate: QuoteTemplate = {
   ]
 };
 
+// Final Expense Insurance Template
+export const finalExpenseTemplate: QuoteTemplate = {
+  serviceId: 'final-expense',
+  serviceName: 'Final Expense Insurance',
+  serviceSlug: 'final-expense',
+  vertical: 'insurance',
+  estimatedTime: '2 minutes',
+  icon: 'pi-heart',
+  
+  steps: [
+    {
+      id: 'applicant-info',
+      title: 'Tell us about yourself',
+      description: 'This information helps us find the best coverage options for you',
+      questions: [
+        {
+          id: 'age',
+          type: 'number',
+          label: 'Your age',
+          required: true,
+          helpText: 'Final expense insurance is typically for ages 45-85',
+          validation: {
+            min: 45,
+            max: 85,
+            message: 'Age must be between 45 and 85'
+          }
+        },
+        {
+          id: 'gender',
+          type: 'select',
+          label: 'Gender',
+          required: true,
+          options: [
+            { value: 'male', label: 'Male' },
+            { value: 'female', label: 'Female' }
+          ]
+        },
+        {
+          id: 'tobacco-use',
+          type: 'boolean',
+          label: 'Do you currently use tobacco products?',
+          required: true,
+          helpText: 'This affects your premium but you can still get coverage'
+        },
+        {
+          id: 'height-feet',
+          type: 'number',
+          label: 'Height (feet)',
+          required: true,
+          validation: {
+            min: 3,
+            max: 8
+          }
+        },
+        {
+          id: 'height-inches',
+          type: 'number',
+          label: 'Height (inches)',
+          required: true,
+          validation: {
+            min: 0,
+            max: 11
+          }
+        },
+        {
+          id: 'weight',
+          type: 'number',
+          label: 'Weight (lbs)',
+          required: true,
+          validation: {
+            min: 80,
+            max: 500,
+            message: 'Please enter your weight in pounds'
+          }
+        }
+      ]
+    },
+    {
+      id: 'health-info',
+      title: 'Health information',
+      description: 'Quick questions to determine eligibility - most conditions are covered',
+      questions: [
+        {
+          id: 'health-conditions',
+          type: 'multiselect',
+          label: 'Do you have any of these conditions? (Select all that apply)',
+          required: false,
+          helpText: 'Having conditions doesn\'t automatically disqualify you',
+          options: [
+            { value: 'diabetes', label: 'Diabetes' },
+            { value: 'heart', label: 'Heart disease or heart attack' },
+            { value: 'cancer', label: 'Cancer (past 2 years)' },
+            { value: 'copd', label: 'COPD or emphysema' },
+            { value: 'stroke', label: 'Stroke' },
+            { value: 'kidney', label: 'Kidney disease' },
+            { value: 'none', label: 'None of the above' }
+          ]
+        },
+        {
+          id: 'medications',
+          type: 'select',
+          label: 'How many prescription medications do you take regularly?',
+          required: true,
+          options: [
+            { value: '0', label: 'None' },
+            { value: '1-2', label: '1-2 medications' },
+            { value: '3-5', label: '3-5 medications' },
+            { value: '6+', label: '6 or more medications' }
+          ]
+        },
+        {
+          id: 'hospitalized',
+          type: 'boolean',
+          label: 'Have you been hospitalized in the past 12 months?',
+          required: true
+        }
+      ]
+    },
+    {
+      id: 'coverage-details',
+      title: 'Coverage preferences',
+      questions: [
+        {
+          id: 'coverage-amount',
+          type: 'select',
+          label: 'How much coverage do you need?',
+          required: true,
+          helpText: 'Average funeral costs range from $7,000-$12,000',
+          options: [
+            { value: '5000', label: '$5,000', description: 'Basic coverage' },
+            { value: '10000', label: '$10,000', description: 'Most popular - covers average funeral' },
+            { value: '15000', label: '$15,000', description: 'Comprehensive coverage' },
+            { value: '20000', label: '$20,000', description: 'Maximum coverage with extras' },
+            { value: '25000', label: '$25,000+', description: 'Premium coverage' }
+          ]
+        },
+        {
+          id: 'purpose',
+          type: 'select',
+          label: 'Primary purpose for this coverage',
+          required: true,
+          options: [
+            { value: 'funeral', label: 'Cover funeral and burial costs' },
+            { value: 'debts', label: 'Pay off remaining debts' },
+            { value: 'family', label: 'Leave money for family' },
+            { value: 'all', label: 'All of the above' }
+          ]
+        },
+        {
+          id: 'timeline',
+          type: 'select',
+          label: 'When would you like coverage to start?',
+          required: true,
+          options: [
+            { value: 'asap', label: 'As soon as possible' },
+            { value: 'month', label: 'Within 30 days' },
+            { value: 'research', label: 'Just researching options' }
+          ]
+        }
+      ]
+    }
+  ]
+};
+
 // Export all insurance templates
 export const insuranceServiceTemplates = {
   'auto-insurance': autoInsuranceTemplate,
   'home-insurance': homeInsuranceTemplate,
+  'final-expense': finalExpenseTemplate,
 };
