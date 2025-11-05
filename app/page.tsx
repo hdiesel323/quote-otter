@@ -1,7 +1,8 @@
 import HeaderQuoteOtter from "@/components/HeaderQuoteOtter";
 import FooterQuoteOtter from "@/components/FooterQuoteOtter";
 import LeadGenHero from "@/components/LeadGenHero";
-import PopularServices from "@/components/verticals/PopularServices";
+import PopularServicesSimple from "@/components/PopularServicesSimple";
+import VerticalTabs from "@/components/VerticalTabs";
 import HowItWorks from "@/components/insurance/HowItWorks";
 import WhyChooseUs from "@/components/insurance/WhyChooseUs";
 import FAQ from "@/components/FAQ";
@@ -12,7 +13,8 @@ export default function Page() {
       <HeaderQuoteOtter />
       <main>
         <LeadGenHero />
-        <PopularServices />
+        <PopularServicesSimple />
+        <VerticalTabs />
         <HowItWorks />
         <WhyChooseUs />
         <FAQ />
