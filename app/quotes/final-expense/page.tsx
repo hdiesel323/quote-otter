@@ -1,6 +1,7 @@
 import React from 'react';
 import HeaderQuoteOtter from "@/components/HeaderQuoteOtter";
 import FooterQuoteOtter from "@/components/FooterQuoteOtter";
+import ServiceZipForm from "@/components/ServiceZipForm";
 import Link from 'next/link';
 import { Metadata } from 'next';
 
@@ -45,17 +46,11 @@ export default function FinalExpensePage() {
               </div>
             </div>
 
-            <Link
-              href="/quotes/final-expense/request"
-              className="inline-flex items-center gap-2 px-10 py-5 bg-white text-indigo-600 font-bold text-lg rounded-xl hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl hover:scale-105"
-            >
-              Get Your Free Quote
-              <i className="pi pi-arrow-right" />
-            </Link>
-            
-            <p className="mt-4 text-sm text-blue-200">
-              Takes 2 minutes • Compare multiple carriers • No obligation
-            </p>
+            <ServiceZipForm 
+              serviceSlug="final-expense"
+              buttonText="Get Your Free Quote"
+              buttonColor="bg-white text-indigo-600 hover:bg-gray-100"
+            />
           </div>
         </div>
       </section>
