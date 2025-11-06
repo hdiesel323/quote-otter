@@ -1,6 +1,7 @@
 import React from 'react';
 import HeaderQuoteOtter from "@/components/HeaderQuoteOtter";
 import FooterQuoteOtter from "@/components/FooterQuoteOtter";
+import ServiceZipForm from "@/components/ServiceZipForm";
 import Link from 'next/link';
 import { Metadata } from 'next';
 
@@ -44,17 +45,11 @@ export default function HVACPage() {
               </div>
             </div>
 
-            <Link
-              href="/?service=hvac#quote-form"
-              className="inline-flex items-center gap-2 px-10 py-5 bg-white text-blue-600 font-bold text-lg rounded-xl hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl hover:scale-105"
-            >
-              Get Your Free Quote
-              <i className="pi pi-arrow-right" />
-            </Link>
-            
-            <p className="mt-4 text-sm text-cyan-200">
-              Takes 2 minutes • Compare 3-5 contractors • No obligation
-            </p>
+            <ServiceZipForm 
+              serviceSlug="hvac"
+              buttonText="Get Free Quotes"
+              buttonColor="bg-white text-blue-600 hover:bg-gray-100"
+            />
           </div>
         </div>
       </section>
