@@ -45,7 +45,7 @@ export default function HVACPage() {
             </div>
 
             <Link
-              href="/quotes/hvac/request"
+              href="/?service=hvac#quote-form"
               className="inline-flex items-center gap-2 px-10 py-5 bg-white text-blue-600 font-bold text-lg rounded-xl hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl hover:scale-105"
             >
               Get Your Free Quote
@@ -137,7 +137,7 @@ export default function HVACPage() {
 
             <div className="text-center">
               <Link
-                href="/quotes/hvac/request"
+                href="/?service=hvac#quote-form"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-bold text-lg rounded-xl transition-all shadow-lg hover:shadow-xl"
               >
                 Compare HVAC Quotes Now
@@ -309,7 +309,7 @@ export default function HVACPage() {
 
             <div className="mt-12 text-center">
               <Link
-                href="/quotes/hvac/request"
+                href="/?service=hvac#quote-form"
                 className="inline-flex items-center gap-2 px-10 py-5 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold text-xl rounded-xl shadow-lg hover:shadow-xl transition-all hover:scale-105"
               >
                 Get Free HVAC Quotes
@@ -382,7 +382,7 @@ export default function HVACPage() {
               Get free quotes from licensed HVAC contractors in your area. Many offer same-day service!
             </p>
             <Link
-              href="/quotes/hvac/request"
+              href="/?service=hvac#quote-form"
               className="inline-flex items-center gap-2 px-10 py-5 bg-white text-blue-600 font-bold text-xl rounded-xl hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl hover:scale-105"
             >
               Get Free Quotes Now

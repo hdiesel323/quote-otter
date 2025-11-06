@@ -46,7 +46,7 @@ export default function RoofingPage() {
             </div>
 
             <Link
-              href="/quotes/roofing/request"
+              href="/?service=roofing#quote-form"
               className="inline-flex items-center gap-2 px-10 py-5 bg-orange-500 hover:bg-orange-600 text-white font-bold text-lg rounded-xl transition-all shadow-lg hover:shadow-xl hover:scale-105"
             >
               Get Your Free Quotes
@@ -138,7 +138,7 @@ export default function RoofingPage() {
 
             <div className="text-center">
               <Link
-                href="/quotes/roofing/request"
+                href="/?service=roofing#quote-form"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-bold text-lg rounded-xl transition-all shadow-lg hover:shadow-xl"
               >
                 Compare Roofing Quotes Now
@@ -276,7 +276,7 @@ export default function RoofingPage() {
 
             <div className="mt-12 text-center">
               <Link
-                href="/quotes/roofing/request"
+                href="/?service=roofing#quote-form"
                 className="inline-flex items-center gap-2 px-10 py-5 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold text-xl rounded-xl shadow-lg hover:shadow-xl transition-all hover:scale-105"
               >
                 Get Free Roofing Quotes
@@ -349,7 +349,7 @@ export default function RoofingPage() {
               Connect with top-rated contractors and get free quotes in minutes.
             </p>
             <Link
-              href="/quotes/roofing/request"
+              href="/?service=roofing#quote-form"
               className="inline-flex items-center gap-2 px-10 py-5 bg-orange-500 hover:bg-orange-600 text-white font-bold text-xl rounded-xl transition-all shadow-lg hover:shadow-xl hover:scale-105"
             >
               Get Free Quotes Now
